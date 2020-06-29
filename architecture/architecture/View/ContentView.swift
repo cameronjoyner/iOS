@@ -21,10 +21,6 @@ struct ContentView: View {
         
         VStack {
             
-            HeaderView()
-            
-            Spacer()
-
             TabView {
                 
                 HomeView()

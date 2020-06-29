@@ -12,24 +12,35 @@ import SwiftUI
 struct HomeView: View {
         
     var body: some View {
-               
-        VStack {
-            
-        HomeExploreView()
-    
-        Spacer()
         
-        HomeScrollView()
+        VStack(spacing: 5) {
             
-            SearchView().padding(.bottom, 5)
+            HeaderView()
             
-        Discover2()
+            ScrollView(Axis.Set.vertical, showsIndicators: false) {
+                VStack(alignment: .leading) {
+                    
+                HomeExploreView()
             
-        Spacer()
-        
-            
-        }
-        .padding(.leading, 10)
+                Spacer()
+                
+                HomeScrollView()
+                    
+                Spacer()
+                    
+                    SearchView().padding(.leading, 3)
+                 
+                Spacer()
+                    
+                Discover2()
+                    
+                Spacer()
+                
+                    
+                }
+                .padding(.leading, 10)
+            } //end scrollview
+        } //end VStack
         
         
     }
@@ -38,7 +49,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-        .previewLayout(.fixed(width: 400, height: 780))
+        .previewLayout(.fixed(width: 400, height: 1000))
             .padding(.top, 20)
     }
 }

@@ -59,7 +59,7 @@ struct BoxView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 300, height: 375)
                 .clipShape(RoundedRectangle(cornerRadius: 22))
-                .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 0)
+                .shadow(color: Color.gray.opacity(0.2), radius: 20, x: 5, y: 15)
             
             if (box.favorite == false){
                 

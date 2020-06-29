@@ -24,18 +24,20 @@ struct Discover2: View {
         .init(id: 1, imageURL: "madrid", name: "Madrid"),
         .init(id: 2, imageURL: "lon", name: "London"),
         .init(id: 3, imageURL: "sf", name: "San Fran"),
-        .init(id: 4, imageURL: "ny", name: "New York")
+        .init(id: 4, imageURL: "ny", name: "New York"),
+        .init(id: 5, imageURL: "ny", name: "Peru")
     ]
     
     var body: some View {
-         VStack {
-           HStack {
+        VStack(alignment: .leading) {
+                       
+            HStack {
                                      
                Text("Discover")
                    .fontWeight(.bold)
                    .font(.system(size: 22))
                    .foregroundColor(.black)
-                   .padding(.leading, 5)
+                   .padding(.leading, 10)
                          
                Spacer()
                
@@ -54,26 +56,26 @@ struct Discover2: View {
                .accentColor(Color.primary)
                
            }
-           .frame(width: 400, height: 15)//.padding(.top, 10)
-           .padding(.bottom, 10)
+           .frame(width: 400, height: 15)
+            .padding(.leading, 12)
                    
-            Spacer()
-            HStack {
-               
-                ForEach(cities, id: \.id) { city in
-                
-                cityBox(city: city)
+            ScrollView(Axis.Set.horizontal, showsIndicators: false) {
+                HStack {
+                   
+                    ForEach(cities, id: \.id) { city in
+                        
+                        cityBox(city: city)
+                        
+                   }
                     
-               }
-                
+                }.frame(height: 150)
             }
+            .frame(width: 400, height: 130)
+            .padding(.leading, 20)
                    
-                   Spacer()
                            
                }
-               .frame(width: 375, height: 140)
-               .padding(.top, 10)
-               .padding(.trailing, 5)
+               .frame(width: 385, height: 180)
 
     }
 }
@@ -89,7 +91,7 @@ struct cityBox: View {
            RoundedRectangle(cornerRadius: 20)
            .foregroundColor(Color.blue)
            .frame(width: 90, height: 110)
-           .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 5, y: 5)
+           .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 5, y: 5)
            
            VStack {
             
@@ -123,8 +125,8 @@ struct cityBox: View {
         
             }
            .frame(width:85, height: 110)
-            .padding(.leading, 2)
-            .padding(.trailing, 2)
+            .padding(.leading, 5)
+            .padding(.trailing, 5)
                        
             }
         

@@ -51,6 +51,7 @@ struct HomeExploreView: View {
             }
             
         }
+        .frame(height: 60)
         
     }
 }
@@ -58,6 +59,6 @@ struct HomeExploreView: View {
 struct HomeExploreView_Previews: PreviewProvider {
     static var previews: some View {
         HomeExploreView()
-        .previewLayout(.fixed(width: 375, height: 50))
+        .previewLayout(.fixed(width: 375, height: 70))
     }
 }
