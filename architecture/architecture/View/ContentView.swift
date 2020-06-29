@@ -42,7 +42,7 @@ struct ContentView: View {
                 FavoritesView()
                     .tabItem ({
                             Image(systemName: "heart.fill")
-                            Text("Articles")
+                            Text("Favorites")
                 })
                 
                 MapView()

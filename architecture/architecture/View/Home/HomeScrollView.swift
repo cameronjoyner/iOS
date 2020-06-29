@@ -18,11 +18,12 @@ struct HomeScrollView: View {
     
     var boxes:[Box] = [
     
-        Box(id: 0, title: "Modern Forest Home", imageUrl: "house1", country: "Norway", favorite: true),
+        
+        Box(id: 4, title: "Sicilian Glass House", imageUrl: "house5", country: "Italy", favorite: true),
+        Box(id: 0, title: "Modern Forest Home", imageUrl: "house1", country: "Norway", favorite: false),
         Box(id: 1, title: "Nordic Escape", imageUrl: "house2", country: "Sweden", favorite: false),
         Box(id: 2, title: "Eco-Friendly Cabin", imageUrl: "house3", country: "Sweden", favorite: false),
-        Box(id: 3, title: "Minimalist Living Room", imageUrl: "house4", country: "Spain", favorite: false),
-        Box(id: 4, title: "Sicilian Glass House", imageUrl: "house5", country: "Italy", favorite: false)
+        Box(id: 3, title: "Minimalist Living Room", imageUrl: "house4", country: "Spain", favorite: false)
     
     ]
     
@@ -49,24 +50,16 @@ struct BoxView: View {
     
     var body: some View{
         
-        VStack {
+        VStack(alignment: .leading) {
         
         ZStack {
               //VStack(alignment: .leading) {
-                GeometryReader { geo in
-                    Image(self.box.imageUrl)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        //.frame(width: 300, height: 375)
-                        .frame(width: geo.size.width)
-                        .aspectRatio(contentMode: .fill)
-                        .cornerRadius(12)
-                        //.padding(.leading, 10)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 0)
-                        
-                }
+            Image(self.box.imageUrl)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 300, height: 375)
-                .padding(.bottom, 40)
+                .clipShape(RoundedRectangle(cornerRadius: 22))
+                .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 0)
             
             if (box.favorite == false){
                 
@@ -75,7 +68,7 @@ struct BoxView: View {
                     .frame(width: 50, height: 50)
                     .background(Color.black.opacity(0.7))
                     .cornerRadius(25)
-                    .padding(.top, 250)
+                    .padding(.top, 295)
                     .padding(.trailing, 220)
                 
             } else {
@@ -85,46 +78,30 @@ struct BoxView: View {
                    .frame(width: 50, height: 50)
                    .background(Color.black.opacity(0.7))
                    .cornerRadius(25)
-                   .padding(.top, 250)
+                   .padding(.top, 295)
                    .padding(.trailing, 220)
                 
                 
             }
-
-                /*
-                .frame(width:250, height: 65, alignment: .center)
-                .padding(.leading, 5)
-                .background(Color.black.opacity(0.7))
-                .cornerRadius(12)
-                                
-                */
-            //.padding(.leading, 25)
             
-            //}
-            
-            VStack(alignment: .leading) {
-                Text(box.title)
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.black)
-            
-                Text(box.country)
-                    .font(.subheadline)
-                    .fontWeight(.regular)
-                    .foregroundColor(Color.black)
-            
-            }
-            .frame(width:290, height: 40)
-            .padding(.top, 385)
-            .padding(.trailing, 140)
              
-        }
-
-        .frame(width: 310, height: 440)
+        } //end of ZStack
+        .frame(width: 310, height: 390)
         .padding(.trailing, 5)
-        //.shadow(color: Color.black.opacity(0.15), radius: 5, x: 10, y: 10)
-        //.frame(width: 100, height: 100)
-        }
+        
+        Text(box.title)
+            .font(.subheadline)
+            .fontWeight(.bold)
+            .foregroundColor(Color.black)
+            .padding(.leading, 5)
+    
+        Text(box.country)
+            .font(.subheadline)
+            .fontWeight(.regular)
+            .foregroundColor(Color.black)
+            .padding(.leading, 5)
+            
+        } //end of VStack
     }
     
 }

@@ -16,7 +16,7 @@ struct HeaderView: View {
             Text("Home")
                 .fontWeight(.bold)
                 .font(.title)
-                .foregroundColor(.black)
+                .foregroundColor(Color.black)
                 .padding(.leading)
                       
             Spacer()
@@ -27,16 +27,17 @@ struct HeaderView: View {
                 
             }) {
                 
-              Image(systemName: "magnifyingglass.circle.fill")
+              Image(systemName: "message.circle.fill")
                 .resizable()
                 .scaledToFit()
-                .frame(height: 40)
+                .frame(height: 30)
                 
             }
             .padding(.trailing)
             .accentColor(Color.primary)
             
         }
+
     }
 }
 

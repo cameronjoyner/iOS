@@ -21,11 +21,10 @@ struct HomeView: View {
         
         HomeScrollView()
             
-        Spacer()
+            SearchView().padding(.bottom, 5)
             
-            ExploreView2()
+        Discover2()
             
-        Spacer()
         Spacer()
         
             
@@ -39,7 +38,8 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-        .previewLayout(.fixed(width: 400, height: 800))
+        .previewLayout(.fixed(width: 400, height: 780))
+            .padding(.top, 20)
     }
 }
 
