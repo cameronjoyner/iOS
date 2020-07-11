@@ -29,6 +29,7 @@
 		1C7806D024B4BAA6007F4337 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7806C324B4BAA6007F4337 /* Roboto-Bold.ttf */; };
 		1C7806D124B4BAA6007F4337 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7806C424B4BAA6007F4337 /* Roboto-Thin.ttf */; };
 		1C7806D224B4BAA6007F4337 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7806C524B4BAA6007F4337 /* Roboto-Black.ttf */; };
+		1C7806D424B513D5007F4337 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7806D324B513D5007F4337 /* CourseList.swift */; };
 		1C7950BF24AFBF3A002997EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7950BE24AFBF3A002997EA /* AppDelegate.swift */; };
 		1C7950C124AFBF3A002997EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7950C024AFBF3A002997EA /* SceneDelegate.swift */; };
 		1C7950C324AFBF3A002997EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7950C224AFBF3A002997EA /* ContentView.swift */; };
@@ -60,6 +61,7 @@
 		1C7806C324B4BAA6007F4337 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		1C7806C424B4BAA6007F4337 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		1C7806C524B4BAA6007F4337 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		1C7806D324B513D5007F4337 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
 		1C7950BB24AFBF3A002997EA /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7950BE24AFBF3A002997EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C7950C024AFBF3A002997EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				1C7806B624B4B810007F4337 /* Modifiers.swift */,
 				1C7806A824B278D9007F4337 /* Home.swift */,
 				1C7806AA24B3705A007F4337 /* HomeView.swift */,
+				1C7806D324B513D5007F4337 /* CourseList.swift */,
 				1C7806AC24B385D2007F4337 /* UpdateList.swift */,
 				1C7806AE24B3B59D007F4337 /* UpdateDetail.swift */,
 				1C7806B024B3BDA8007F4337 /* UpdateStore.swift */,
@@ -245,6 +248,7 @@
 				1C7950C124AFBF3A002997EA /* SceneDelegate.swift in Sources */,
 				1C7950C324AFBF3A002997EA /* ContentView.swift in Sources */,
 				1C7806B324B3CE23007F4337 /* TabBar.swift in Sources */,
+				1C7806D424B513D5007F4337 /* CourseList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
