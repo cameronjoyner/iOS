@@ -19,7 +19,7 @@ struct HomeView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack { //our top menu view made into a VStack so that we can use a spacer and send it up to the top
                 HStack {
-                    Text("Watching")
+                    Text("Meet Cam")
                         .font(.system(size: 28, weight: .bold))
                         //.modifier(customFontModifer(size: 27))
                     
@@ -58,6 +58,8 @@ struct HomeView: View {
                 } //our custom modifier from Modifiers.swift
                 
                 ScrollView(.horizontal, showsIndicators: false) {
+                    
+                //this is the horizontal scrollview in the middle of the page
                     HStack(spacing: 20) {
                         ForEach(sectiondata) { item in //sectondata is our data array
                             GeometryReader { geometry in
@@ -74,9 +76,9 @@ struct HomeView: View {
                     .padding(.bottom, 30)
                 }
                 .offset(y: -30)
-                
+                /*
                 HStack {
-                    Text("Courses")
+                    Text("Work & Projects")
                         .font(.title).bold()
                     Spacer()
                 }
@@ -84,7 +86,9 @@ struct HomeView: View {
                 .offset(y: -60)
                 
                 SectionView(section: sectiondata[2], width: screen.width - 60, height: 275)
-                .offset(y: -60)
+                 */
+                CourseList()
+                    .offset(y: -80)
                 
                 
                 Spacer()
@@ -110,16 +114,25 @@ struct SectionView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Text(section.title)
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(Color.white)
-                    .frame(width: 160, alignment: .leading)
+                VStack(alignment: .leading) {
+                    Text(section.title)
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .frame(width: 160, alignment: .leading)
+                    Text(section.text.uppercased())
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
                 Spacer()
-                Image(section.logo)
+                ZStack {
+                    Circle()
+                    .foregroundColor(Color("card7"))
+                    .frame(width: 40, height: 40)
+                    section.logo
+                        .foregroundColor(Color.white)
+                }
             }
-            Text(section.text.uppercased())
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
+            Spacer()
             section.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -139,16 +152,19 @@ struct Section: Identifiable {
     var id = UUID() //give unique id to data
     var title: String
     var text: String
-    var logo: String
+    //var logo: String
+    var logo: Image
     var image: Image
     var color: Color
 }
 
 let sectiondata = [
-    Section(title: "Prototype designs in SwiftUI", text: "18 sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card1")), color: Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))), //best for prototyping quickly instead of color: Color("card1")
+    Section(title: "Raleigh, NC", text: "1995 - 2013", logo: Image(systemName : "house"), image: Image(uiImage: #imageLiteral(resourceName: "Card1")), color: Color("card1")), //best for prototyping quickly instead of color: Color("card1")
         //Image("Card1")
-    Section(title: "Build a SwiftUI app", text: "20 sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card4")), color: Color(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1))),
-    Section(title: "Create a dynamic website", text: "32 sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card3")), color: Color(#colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)))
+    Section(title: "Anaco, Venezuela", text: "2013 - 2014", logo: Image(systemName : "airplane"), image: Image(uiImage: #imageLiteral(resourceName: "Card4")), color: Color("card2")),
+    Section(title: "Columbia, SC", text: "2014 - 2016", logo: Image(systemName : "book"), image: Image(uiImage: #imageLiteral(resourceName: "Card3")), color: Color("card3")),
+    Section(title: "Austin, TX", text: "2017 - 2019", logo: Image(systemName : "headphones"), image: Image(uiImage: #imageLiteral(resourceName: "Card3")), color: Color("card4")),
+    Section(title: "New York, NY", text: "2019 - NOWs", logo: Image(systemName : "book.fill"), image: Image(uiImage: #imageLiteral(resourceName: "Card3")), color: Color("card4"))
 ]
 
 struct WatchRingsView: View {

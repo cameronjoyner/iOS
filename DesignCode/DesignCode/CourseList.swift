@@ -13,18 +13,19 @@ struct CourseList: View {
     @State var active = false
     @State var activeIndex = -1
     //@Binding var active: Bool
-    @State var activeView = CGSize.zero //because we have this correspond to a binding
+    @State var activeView = CGSize.zero
+    //because we have this correspond to a binding
     
     var body: some View {
         ZStack {
             Color.black.opacity(Double(self.activeView.height / 500))
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
-            //the opacity line means when you drag the opacity changes 
+            //the opacity line means when you drag the opacity changes
             
             ScrollView {
                 VStack(spacing: 30) {
-                    Text("Courses")
+                    Text("Work & Projects")
                         .font(.largeTitle).bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 30)
@@ -133,9 +134,9 @@ struct CourseView: View {
             .padding(.top, show ? 30 : 0)
     //        .frame(width: show ? screen.width : screen.width - 60, height: show ? screen.height : 280)
             .frame(maxWidth: show ? .infinity : screen.width - 60, maxHeight: show ? 460 : 280)
-                .background(Color(course.color))
+                .background(course.color)
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
+                .shadow(color: course.color.opacity(0.3), radius: 20, x: 0, y: 20)
             .gesture(
                 show ?
                 DragGesture().onChanged { value in
@@ -169,6 +170,20 @@ struct CourseView: View {
                     self.activeIndex = -1 //we pass the value of the index to tell us which is active and which isn't
                 }
             }
+            
+            //if card is active (showing courseDetail.swift view)
+            if show {
+                //CourseDetail(
+                    //course: course,
+                    //show: $show,
+                    //active: $active,
+                    //activeIndex: $activeIndex)
+                    //.background(Color.white)
+                    //.animation(nil)
+                //https://designcode.io/swiftui2-dynamic-new-view
+                //when you use a binding you use $ to precede it
+            }
+            
         }
         .frame(height: show ? screen.height : 280)
         .scaleEffect(1 - self.activeView.height / 1000) //when we drag up and down each pixel represents 1.0
@@ -209,15 +224,18 @@ struct Course: Identifiable {
     var subtitle: String
     var image: UIImage
     var logo: UIImage
-    var color: UIColor
+    var color: Color
     var show: Bool
 }
 
 var courseData = [
 
-Course(title: "Prototype Designs in SwiftUI", subtitle: "18 sections", image: #imageLiteral(resourceName: "Card5"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), show: false),
-Course(title: "Prototype Designs in ProtoPie", subtitle: "28 sections", image: #imageLiteral(resourceName: "Card3"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), show: false),
-Course(title: "Prototype Designs in Framer", subtitle: "40 sections", image: #imageLiteral(resourceName: "Card1"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), show: false)
+Course(title: "Prototype Designs in SwiftUI", subtitle: "18 sections", image: #imageLiteral(resourceName: "Card5"), logo: #imageLiteral(resourceName: "Logo1"), color: Color("ed1"), show: false),
+Course(title: "Prototype Designs in ProtoPie", subtitle: "28 sections", image: #imageLiteral(resourceName: "Card3"), logo: #imageLiteral(resourceName: "Logo1"), color: Color("ed2"), show: false),
+Course(title: "Prototype Designs in Framer", subtitle: "40 sections", image: #imageLiteral(resourceName: "Card1"), logo: #imageLiteral(resourceName: "Logo1"), color: Color("ed3"), show: false),
+Course(title: "Prototype Designs in SwiftUI", subtitle: "18 sections", image: #imageLiteral(resourceName: "Card5"), logo: #imageLiteral(resourceName: "Logo1"), color: Color("ed4"), show: false),
+Course(title: "Prototype Designs in SwiftUI", subtitle: "18 sections", image: #imageLiteral(resourceName: "Card5"), logo: #imageLiteral(resourceName: "Logo1"), color: Color("ed5"), show: false),
+Course(title: "Prototype Designs in SwiftUI", subtitle: "18 sections", image: #imageLiteral(resourceName: "Card5"), logo: #imageLiteral(resourceName: "Logo1"), color: Color("ed6"), show: false)
 
 
 ]
