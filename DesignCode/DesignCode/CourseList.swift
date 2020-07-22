@@ -22,7 +22,9 @@ struct CourseList: View {
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
             //the opacity line means when you drag the opacity changes
-            
+                .onAppear {
+                    getArray()
+            }
             ScrollView {
                 VStack(spacing: 30) {
                     Text("Work & Projects")
